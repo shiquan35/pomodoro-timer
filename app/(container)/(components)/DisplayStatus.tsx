@@ -5,9 +5,13 @@ import { useMediaQuery } from "react-responsive";
 
 type DisplayStatusProps = {
   status: Status;
+  prevStatus: Status;
 };
 
-const DisplayStatus: React.FC<DisplayStatusProps> = ({ status }) => {
+const DisplayStatus: React.FC<DisplayStatusProps> = ({
+  status,
+  prevStatus,
+}) => {
   const isMobile = useMediaQuery({ query: "(max-width: 768px)" });
 
   return (
@@ -31,7 +35,7 @@ const DisplayStatus: React.FC<DisplayStatusProps> = ({ status }) => {
             fontSize={isMobile ? "1em" : "3em"}
             width={isMobile ? "80px" : "170px"}
           >
-            WORK
+            {prevStatus}
           </Badge>
         )}
       </div>
