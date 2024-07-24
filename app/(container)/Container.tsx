@@ -10,6 +10,11 @@ function Container() {
   const [minutes, setMinutes] = useState<number>(0);
   const [seconds, setSeconds] = useState<number>(20);
   const [cycle, setCycle] = useState<number>(10);
+  const [displayTime, setDisplayTime] = useState<string>(
+    `${minutes.toString().padStart(2, "0")}:${seconds
+      .toString()
+      .padStart(2, "0")}`
+  );
 
   useEffect(() => {
     let intervalId: string | number | NodeJS.Timeout | undefined;
@@ -37,6 +42,11 @@ function Container() {
             setCycle((prev) => prev + 1);
           }
         }
+        setDisplayTime(
+          `${minutes.toString().padStart(2, "0")}:${seconds
+            .toString()
+            .padStart(2, "0")}`
+        );
       }, 200);
     }
     return () => clearInterval(intervalId);
@@ -55,10 +65,6 @@ function Container() {
     setSeconds(0);
     setWorkState("STOP");
   };
-
-  const displayTime = `${minutes.toString().padStart(2, "0")}:${seconds
-    .toString()
-    .padStart(2, "0")}`;
 
   return (
     <>
