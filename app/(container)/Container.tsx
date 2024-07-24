@@ -10,8 +10,8 @@ export type Status = "WORK" | "PAUSE" | "STOP" | "BREAK";
 function Container() {
   const [status, setStatus] = useState<Status>("STOP");
   const [prevStatus, setPreviousStatus] = useState<Status>("STOP"); // to track whether the pause/reset occurs during WORK or PAUSE
-  const [minutes, setMinutes] = useState<number>(0);
-  const [seconds, setSeconds] = useState<number>(20);
+  const [minutes, setMinutes] = useState<number>(25);
+  const [seconds, setSeconds] = useState<number>(0);
   const [cycle, setCycle] = useState<number>(0);
   const [displayTime, setDisplayTime] = useState<string>(
     `${minutes.toString().padStart(2, "0")}:${seconds
@@ -36,14 +36,14 @@ function Container() {
           if (status === "WORK") {
             setStatus("BREAK");
             setPreviousStatus("BREAK");
-            setMinutes(0);
-            setSeconds(30);
+            setMinutes(5);
+            setSeconds(0);
           }
           if (status === "BREAK") {
             setStatus("STOP");
             setPreviousStatus("WORK");
-            setMinutes(0);
-            setSeconds(20);
+            setMinutes(25);
+            setSeconds(0);
             setCycle((prev) => prev + 1);
           }
         }
