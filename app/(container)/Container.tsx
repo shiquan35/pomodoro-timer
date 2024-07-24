@@ -4,10 +4,10 @@ import { Badge } from "@chakra-ui/react";
 import DisplayCycle from "./(components)/DisplayCycle";
 import DisplayTimer from "./(components)/DisplayTimer";
 
-type WorkState = "WORK" | "PAUSE" | "STOP" | "BREAK";
+type Status = "WORK" | "PAUSE" | "STOP" | "BREAK";
 
 function Container() {
-  const [workState, setWorkState] = useState<WorkState>("STOP");
+  const [status, setStatus] = useState<Status>("STOP");
   const [minutes, setMinutes] = useState<number>(0);
   const [seconds, setSeconds] = useState<number>(20);
   const [cycle, setCycle] = useState<number>(10);
@@ -19,7 +19,7 @@ function Container() {
 
   useEffect(() => {
     let intervalId: string | number | NodeJS.Timeout | undefined;
-    if (workState === "WORK" || workState === "BREAK") {
+    if (status === "WORK" || status === "BREAK") {
       intervalId = setInterval(() => {
         if (seconds > 0) {
           setSeconds((prev) => prev - 1);
@@ -31,13 +31,13 @@ function Container() {
           // WORK --> BREAK
           // or BREAK --> STOP
 
-          if (workState === "WORK") {
-            setWorkState("BREAK");
+          if (status === "WORK") {
+            setStatus("BREAK");
             setMinutes(0);
             setSeconds(10);
           }
-          if (workState === "BREAK") {
-            setWorkState("STOP");
+          if (status === "BREAK") {
+            setStatus("STOP");
             setMinutes(0);
             setSeconds(20);
             setCycle((prev) => prev + 1);
@@ -51,20 +51,20 @@ function Container() {
       }, 200);
     }
     return () => clearInterval(intervalId);
-  }, [workState, minutes, seconds]);
+  }, [status, minutes, seconds]);
 
   const handleStart = () => {
-    setWorkState("WORK");
+    setStatus("WORK");
   };
 
   const handlePause = () => {
-    setWorkState("PAUSE");
+    setStatus("PAUSE");
   };
 
   const handleReset = () => {
     setMinutes(2);
     setSeconds(0);
-    setWorkState("STOP");
+    setStatus("STOP");
   };
 
   return (
@@ -73,20 +73,20 @@ function Container() {
         <DisplayCycle cycleNumber={cycle} />
         <DisplayTimer displayTime={displayTime} />
         <div className="flex">
-          <span className="text-white">{workState}</span>
+          <span className="text-white">{status}</span>
 
           <div className="controls">
             <button
               className="text-white"
               onClick={handleStart}
-              disabled={workState === "WORK"}
+              disabled={status === "WORK"}
             >
               Start
             </button>
             <button
               className="text-white"
               onClick={handlePause}
-              disabled={workState === "PAUSE"}
+              disabled={status === "PAUSE"}
             >
               Pause
             </button>
