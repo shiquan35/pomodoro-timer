@@ -15,9 +15,9 @@ function Container() {
     if (workState === "WORK" || workState === "BREAK") {
       intervalId = setInterval(() => {
         if (seconds > 0) {
-          setSeconds(seconds - 1);
+          setSeconds((prev) => prev - 1);
         } else if (minutes > 0) {
-          setMinutes(minutes - 1);
+          setMinutes((prev) => prev - 1);
           setSeconds(59);
         } else {
           // Timer finished!
@@ -33,6 +33,7 @@ function Container() {
             setWorkState("STOP");
             setMinutes(0);
             setSeconds(20);
+            setCycle((prev) => prev + 1);
           }
         }
       }, 200);
@@ -61,6 +62,7 @@ function Container() {
   return (
     <>
       <div className="flex flex-col">
+        <span className="text-white">Cycle: {cycle}</span>
         <span className="text-white">{workState}</span>
         <span className="timer-display text-white">{displayTime}</span>
         <div className="controls">
