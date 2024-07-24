@@ -63,7 +63,6 @@ function Container() {
   return (
     <>
       <div className="flex flex-col">
-        {/* <span className="text-white">Cycle: {cycle}</span> */}
         <DisplayCycle cycleNumber={cycle} />
         <span className="timer-display text-white">{displayTime}</span>
 
@@ -93,8 +92,6 @@ function Container() {
       </div>
 
       <div className="flex flex-col">
-        {/* display cycle */}
-
         {/* display timer */}
 
         {/* display status badges */}
