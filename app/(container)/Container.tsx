@@ -3,7 +3,6 @@ import { useState, useEffect } from "react";
 import DisplayCycle from "./(components)/DisplayCycle";
 import DisplayTimer from "./(components)/DisplayTimer";
 import DisplayStatus from "./(components)/DisplayStatus";
-import { Button } from "@chakra-ui/react";
 import Controls from "./(components)/Controls";
 
 export type Status = "WORK" | "PAUSE" | "STOP" | "BREAK";
@@ -81,12 +80,13 @@ function Container() {
 
   return (
     <>
-      <div className="flex flex-col md:w-1/2">
+      <div className="flex flex-col md:w-5/8">
         <DisplayCycle cycleNumber={cycle} />
         <DisplayTimer displayTime={displayTime} />
 
-        <div className="flex">
+        <div className="flex justify-between">
           <DisplayStatus status={status} prevStatus={prevStatus} />
+
           <Controls
             status={status}
             handleStart={handleStart}
