@@ -47,7 +47,7 @@ function Container() {
             setCycle((prev) => prev + 1);
           }
         }
-      }, 200);
+      }, 1000);
     }
     setDisplayTime(
       `${minutes.toString().padStart(2, "0")}:${seconds
@@ -70,11 +70,11 @@ function Container() {
     setStatus("STOP");
 
     if (prevStatus === "WORK") {
-      setMinutes(0);
-      setSeconds(20);
+      setMinutes(25);
+      setSeconds(0);
     } else if (prevStatus === "BREAK") {
-      setMinutes(0);
-      setSeconds(30);
+      setMinutes(5);
+      setSeconds(0);
     }
   };
 
