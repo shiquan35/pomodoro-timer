@@ -1,10 +1,10 @@
 "use client";
 import { useState, useEffect } from "react";
-import { Badge } from "@chakra-ui/react";
 import DisplayCycle from "./(components)/DisplayCycle";
 import DisplayTimer from "./(components)/DisplayTimer";
+import DisplayStatus from "./(components)/DisplayStatus";
 
-type Status = "WORK" | "PAUSE" | "STOP" | "BREAK";
+export type Status = "WORK" | "PAUSE" | "STOP" | "BREAK";
 
 function Container() {
   const [status, setStatus] = useState<Status>("STOP");
@@ -69,11 +69,11 @@ function Container() {
 
   return (
     <>
-      <div className="flex flex-col">
+      <div className="flex flex-col md:w-1/2">
         <DisplayCycle cycleNumber={cycle} />
         <DisplayTimer displayTime={displayTime} />
         <div className="flex">
-          <span className="text-white">{status}</span>
+          <DisplayStatus status={status} />
 
           <div className="controls">
             <button
