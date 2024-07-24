@@ -2,6 +2,7 @@
 import { useState, useEffect } from "react";
 import { Badge } from "@chakra-ui/react";
 import DisplayCycle from "./(components)/DisplayCycle";
+import DisplayTimer from "./(components)/DisplayTimer";
 
 type WorkState = "WORK" | "PAUSE" | "STOP" | "BREAK";
 
@@ -70,8 +71,7 @@ function Container() {
     <>
       <div className="flex flex-col">
         <DisplayCycle cycleNumber={cycle} />
-        <span className="timer-display text-white">{displayTime}</span>
-
+        <DisplayTimer displayTime={displayTime} />
         <div className="flex">
           <span className="text-white">{workState}</span>
 
