@@ -26,7 +26,7 @@ const DisplayStatus: React.FC<DisplayStatusProps> = ({ status }) => {
           </Badge>
         ) : (
           <Badge
-            variant="subtle"
+            variant="outline"
             colorScheme="green"
             fontSize={isMobile ? "1em" : "3em"}
             width={isMobile ? "80px" : "170px"}
@@ -38,7 +38,7 @@ const DisplayStatus: React.FC<DisplayStatusProps> = ({ status }) => {
 
       <div className="mt-3 text-center">
         <Badge
-          variant={status === "PAUSE" ? "solid" : "subtle"}
+          variant={status === "PAUSE" ? "solid" : "outline"}
           colorScheme="yellow"
           fontSize={isMobile ? "1em" : "3em"}
           width={isMobile ? "80px" : "170px"}
@@ -49,7 +49,7 @@ const DisplayStatus: React.FC<DisplayStatusProps> = ({ status }) => {
 
       <div className="mt-3 text-center">
         <Badge
-          variant={status === "STOP" ? "solid" : "subtle"}
+          variant={status === "STOP" ? "solid" : "outline"}
           colorScheme="red"
           fontSize={isMobile ? "1em" : "3em"}
           width={isMobile ? "80px" : "170px"}
