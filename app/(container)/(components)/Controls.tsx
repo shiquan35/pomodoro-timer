@@ -44,7 +44,7 @@ const Controls: React.FC<ControlsProps> = ({
         <Button
           onClick={handleReset}
           colorScheme="whiteAlpha"
-          width="50px"
+          width="55px"
           height={isMobile ? "100px" : "240px"}
         >
           Reset
