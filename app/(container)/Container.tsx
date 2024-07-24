@@ -1,6 +1,7 @@
 "use client";
 import { useState, useEffect } from "react";
 import { Badge } from "@chakra-ui/react";
+import DisplayCycle from "./(components)/DisplayCycle";
 
 type WorkState = "WORK" | "PAUSE" | "STOP" | "BREAK";
 
@@ -8,7 +9,7 @@ function Container() {
   const [workState, setWorkState] = useState<WorkState>("STOP");
   const [minutes, setMinutes] = useState<number>(0);
   const [seconds, setSeconds] = useState<number>(20);
-  const [cycle, setCycle] = useState<number>(0);
+  const [cycle, setCycle] = useState<number>(10);
 
   useEffect(() => {
     let intervalId: string | number | NodeJS.Timeout | undefined;
@@ -62,7 +63,8 @@ function Container() {
   return (
     <>
       <div className="flex flex-col">
-        <span className="text-white">Cycle: {cycle}</span>
+        {/* <span className="text-white">Cycle: {cycle}</span> */}
+        <DisplayCycle cycleNumber={cycle} />
         <span className="timer-display text-white">{displayTime}</span>
 
         <div className="flex">
