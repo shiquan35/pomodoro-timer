@@ -9,7 +9,7 @@ export type Status = "WORK" | "PAUSE" | "STOP" | "BREAK";
 
 function Container() {
   const [status, setStatus] = useState<Status>("STOP");
-  const [prevStatus, setPreviousStatus] = useState<Status>("STOP"); // to track whether the pause/reset occurs during WORK or PAUSE
+  const [prevStatus, setPreviousStatus] = useState<Status>("WORK"); // to track whether the pause/reset occurs during WORK or PAUSE
   const [minutes, setMinutes] = useState<number>(25);
   const [seconds, setSeconds] = useState<number>(0);
   const [cycle, setCycle] = useState<number>(0);
