@@ -63,26 +63,30 @@ function Container() {
     <>
       <div className="flex flex-col">
         <span className="text-white">Cycle: {cycle}</span>
-        <span className="text-white">{workState}</span>
         <span className="timer-display text-white">{displayTime}</span>
-        <div className="controls">
-          <button
-            className="text-white"
-            onClick={handleStart}
-            disabled={workState === "WORK"}
-          >
-            Start
-          </button>
-          <button
-            className="text-white"
-            onClick={handlePause}
-            disabled={workState === "PAUSE"}
-          >
-            Pause
-          </button>
-          <button className="text-white" onClick={handleReset}>
-            Reset
-          </button>
+
+        <div className="flex">
+          <span className="text-white">{workState}</span>
+
+          <div className="controls">
+            <button
+              className="text-white"
+              onClick={handleStart}
+              disabled={workState === "WORK"}
+            >
+              Start
+            </button>
+            <button
+              className="text-white"
+              onClick={handlePause}
+              disabled={workState === "PAUSE"}
+            >
+              Pause
+            </button>
+            <button className="text-white" onClick={handleReset}>
+              Reset
+            </button>
+          </div>
         </div>
       </div>
 
