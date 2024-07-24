@@ -96,14 +96,6 @@ function Container() {
           </div>
         </div>
       </div>
-
-      <div className="flex flex-col">
-        {/* display timer */}
-
-        {/* display status badges */}
-
-        {/* display buttons */}
-      </div>
     </>
   );
 }

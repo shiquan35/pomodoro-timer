@@ -15,5 +15,3 @@ const DisplayCycle: React.FC<DisplayCycleProps> = ({ cycleNumber }) => {
 };
 
 export default DisplayCycle;
-
-// sm:w-28 sm:h-14 md:w-72 md:h-28
